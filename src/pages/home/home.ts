@@ -12,4 +12,13 @@ export class HomePage {
 
   }
 
+  /*
+  Push: Empilha uma pagina em cima da outra.
+  SetRoot: Para ir para outra pagina.
+  */
+  login() {
+    this.navCtrl.setRoot('CategoriasPage');
+
+  }
+
 }
