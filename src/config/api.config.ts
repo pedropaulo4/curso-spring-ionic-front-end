@@ -3,5 +3,6 @@ Definindo configurações da minha API
 */
 
 export const API_CONFIG = {
-    baseUrl: "http://localhost:8080"
+    baseUrl: "http://localhost:8080",
+    bucketBaseUrl: "https://s3-sa-east-1.amazonaws.com/pp-curso-spring-ionic"
 }
