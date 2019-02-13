@@ -14,6 +14,7 @@ import { CategoriaService } from './../services/domain/categoria.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StorageService } from '../services/storage.services';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CategoriaService,
     ErrorInterceptorProvider,
     AuthService,
+    StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
