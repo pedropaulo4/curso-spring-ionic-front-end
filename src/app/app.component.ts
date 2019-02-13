@@ -27,7 +27,8 @@ rootPage atributo que declara qual pagina tem que ser carregado quando o app, fo
     Declarando as páginas em forma de String, com Lazy Loading
     */
     this.pages = [
-      { title: 'Home', component: 'HomePage' },
+      { title: 'Profile', component: 'ProfilePage' },
+      { title: 'Categorias', component: 'CategoriasPage' },
       
     ];
 
