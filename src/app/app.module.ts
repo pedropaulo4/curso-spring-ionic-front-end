@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -36,6 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     CategoriaService,
     ErrorInterceptorProvider,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
