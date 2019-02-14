@@ -1,3 +1,4 @@
+import { ClienteService } from './../services/domain/cliente.service';
 import { AuthService } from './../services/auth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,6 +41,7 @@ import { StorageService } from '../services/storage.services';
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
+    ClienteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
