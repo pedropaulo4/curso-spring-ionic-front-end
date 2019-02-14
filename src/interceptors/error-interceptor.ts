@@ -3,6 +3,7 @@ import { StorageService } from './../services/storage.services';
 import { HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS, HttpEvent } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
 import { Injectable } from "@angular/core";
+import { AlertController } from 'ionic-angular';
 
 /*
 Classe que implementa um metodo que faz interceptar uma requisição, e aplica uma logica.
@@ -10,7 +11,7 @@ Classe que implementa um metodo que faz interceptar uma requisição, e aplica u
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(public storage : StorageService) {
+    constructor(public storage : StorageService, public alertControler : AlertController) {
         
     }
 
@@ -36,9 +37,16 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log(errorObj);
 
             switch (errorObj.status) {
+                case 401:
+                this.handle401();
+                break;
+                
                 case 403:
                 this.handle403();
                 break;
+
+                default: 
+                this.handleDefaultError(errorObj);
             }
 
             return Observable.throw(errorObj);
@@ -49,6 +57,37 @@ export class ErrorInterceptor implements HttpInterceptor {
         this.storage.setLocalUser(null);
 
     }
+
+    handle401() {
+        let alert = this.alertControler.create({
+            title: 'Erro 401: Falha de Autenticação',
+            message: 'Email ou senha incorretos',
+            enableBackdropDismiss: false, // pra sair do alert, tocar apenas no botão do alert
+            buttons: [
+                {
+                    text: 'Ok'
+                }
+            ]
+        });
+
+        alert.present(); // mostrar o alert
+    }
+
+    handleDefaultError(errorObj) {
+        let alert = this.alertControler.create({
+            title: 'Erro' + errorObj.status + ': ' + errorObj.error,
+            message: errorObj.message,
+            enableBackdropDismiss: false, // pra sair do alert, tocar apenas no botão do alert
+            buttons: [
+                {
+                    text: 'Ok'
+                }
+            ]
+
+        });
+        alert.present();
+    }
+
 }
 /*
 - Exigência para criar um interceptor
