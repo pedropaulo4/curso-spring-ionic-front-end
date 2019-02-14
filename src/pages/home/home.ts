@@ -37,6 +37,15 @@ export class HomePage {
     this.menu.swipeEnable(true);
    }
 
+   ionViewDidEnter(){
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.sucessfulLogin(response.headers.get('Authorization'));
+      this.navCtrl.setRoot('CategoriasPage');
+    },
+    error => {});
+   }
+
   /*
   Push: Empilha uma pagina em cima da outra.
   SetRoot: Para ir para outra pagina.

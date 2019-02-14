@@ -25,6 +25,16 @@ export class AuthService {
                 responseType: 'text'
             });
     }
+
+    refreshToken() {
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/auth/refresh_token`, 
+            {},
+            {
+                observe: 'response',
+                responseType: 'text'
+            });
+    }
 /*
 Passo o token como parametro obtido no HEADER
 SubString(7): Recorto a String a partir do 7º caracter
@@ -45,4 +55,6 @@ SubString(7): Recorto a String a partir do 7º caracter
     logout(){
         this.storage.setLocalUser(null);
     }
+
+   
 }
