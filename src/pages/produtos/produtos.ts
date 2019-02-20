@@ -55,4 +55,8 @@ se a imagem existir no bucket, eu monto a url como resposta
     }
   }
 
+  showDetail(produto_id : string) {
+    this.navCtrl.push('ProdutoDetailPage', {produto_id : produto_id});
+  }
+
 }
