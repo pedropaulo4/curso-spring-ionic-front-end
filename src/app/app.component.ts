@@ -34,6 +34,7 @@ rootPage atributo que declara qual pagina tem que ser carregado quando o app, fo
     this.pages = [
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categorias', component: 'CategoriasPage' },
+      { title: 'Carrinho', component: 'CartPage'},
       { title: 'Logout', component: ''}
     ];
 
