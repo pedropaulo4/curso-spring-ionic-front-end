@@ -11,10 +11,9 @@ export class ClienteService {
 
     }
 
-    findByEmail(email : string) : Observable<ClienteDTO> {
-        
-        
-        return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`);
+    findByEmail(email : string) {
+             
+        return this.http.get(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`);
     }
 /*
 Blob, porque a resposta é uma imagem
