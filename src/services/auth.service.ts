@@ -1,3 +1,4 @@
+import { CartService } from './domain/cart.service';
 import { LocalUser } from './../models/local_user';
 import { API_CONFIG } from './../config/api.config';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +12,10 @@ export class AuthService {
 // Objeto para extrair o token
     jwtHelper : JwtHelper = new JwtHelper();
 
-    constructor(public http: HttpClient, public storage: StorageService){
+    constructor(
+        public http: HttpClient,
+        public storage: StorageService,
+        public cartService : CartService){
 
     }
 
@@ -47,6 +51,7 @@ SubString(7): Recorto a String a partir do 7º caracter
         };
 
         this.storage.setLocalUser(user);
+        this.cartService.createOrClearCart();
 
 
 
@@ -55,6 +60,8 @@ SubString(7): Recorto a String a partir do 7º caracter
     logout(){
         this.storage.setLocalUser(null);
     }
+
+
 
    
 }
