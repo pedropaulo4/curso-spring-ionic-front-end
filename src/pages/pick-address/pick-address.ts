@@ -57,10 +57,12 @@ export class PickAddressPage {
     }
 
   }
+// escolher o endereço
+nextPage(item: EnderecoDTO) {
+  this.pedido.enderecoDeEntrega = {id: item.id};
+  
+  this.navCtrl.push('PaymentPage', {pedido: this.pedido});
+}
 
-  nextPage(item: EnderecoDTO) {
-    this.pedido.enderecoDeEntrega = {id: item.id};
-    console.log(this.pedido);
-  }
 
 }
