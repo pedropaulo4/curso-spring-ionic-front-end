@@ -74,7 +74,7 @@ export class CartService {
     total() : number {
         let cart = this.getCart();
         let sum = 0;
-        for(var i=0; i<cart.items.length;i++) {
+        for (var i=0; i<cart.items.length; i++) {
             sum += cart.items[i].produto.preco * cart.items[i].quantidade;
         }
         return sum;
