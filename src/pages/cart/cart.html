@@ -5,7 +5,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cart</ion-title>
+    <ion-title>Carrinho de compras</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -33,5 +33,5 @@
     </ion-item>
   </ion-list>
   <button ion-button block (click)="goOn()">Continuar comprando</button>
-  <button ion-button block color="secondary" (click)="checkout()">Finalizar Pedido</button>
+  <button *ngIf="total() > 0" ion-button block color="secondary" (click)="checkout()">Finalizar Pedido</button>
 </ion-content>

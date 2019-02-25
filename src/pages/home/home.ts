@@ -12,8 +12,8 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
 export class HomePage {
 
   creds : CredenciaisDTO = {
-    email:" ",
-    senha:" "
+    email:"",
+    senha:""
   };
 
   constructor(
